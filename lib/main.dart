@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_signpp_post/Providers/LoginProvider.dart';
+import 'package:login_signpp_post/Providers/NewsProvider.dart';
 import 'package:login_signpp_post/Providers/PasswordProvider.dart';
 import 'package:login_signpp_post/Providers/SignUpProvider.dart';
 import 'package:login_signpp_post/Views/SignUp.dart';
@@ -10,6 +11,7 @@ void main() {
     ChangeNotifierProvider(create: (context) => Signupprovider(),),
     ChangeNotifierProvider(create: (context) => Passwordprovider(),),
     ChangeNotifierProvider(create: (context) => Loginprovider(),),
+     ChangeNotifierProvider(create: (context) => Newsprovider(),),
       
   ],
     child: const MyApp()));

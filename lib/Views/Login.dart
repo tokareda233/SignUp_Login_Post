@@ -3,6 +3,7 @@ import 'package:login_signpp_post/Componentes/CustomElevatedButton.dart';
 import 'package:login_signpp_post/Componentes/CustomTextFormField.dart';
 import 'package:login_signpp_post/Providers/LoginProvider.dart';
 import 'package:login_signpp_post/Providers/PasswordProvider.dart';
+import 'package:login_signpp_post/Views/NewsSreen.dart';
 import 'package:login_signpp_post/Views/SignUp.dart';
 import 'package:provider/provider.dart';
 
@@ -75,8 +76,13 @@ class Login extends StatelessWidget {
                   Customelevatedbutton(onPressed: ()async{
                     if(formKey.currentState!.validate()){
                         await LoginObj.LoginRequestProvider(EmailController.text, PasswordController.text);
-
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text(LoginObj.signupmodel!.message)));
+                       if(LoginObj.signupmodel!.status==true){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsScreen(),));
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text(LoginObj.signupmodel!.message)));
+                       }else{
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text(LoginObj.signupmodel!.message)));
+                       }
+                     
                 
                      
                     }
